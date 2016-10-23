@@ -6,11 +6,15 @@ class Home extends CI_Controller {
 	
 	public function index()
 	{
-            if(!$this->session->logado){
-		$this->load->view('login');
-            }else{
-                $this->load->view('welcome-message');
+           //$this->load->verificaSessao();
+           $this->load->view('include/side-menu');
+           $this->load->view('dashboard');
+        }
+        
+        public function verificaSessao()
+        { 
+            if (!$this->session->logado) {
+                redirect('home/login');
             }
         }
 }
-

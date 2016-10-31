@@ -69,17 +69,17 @@ class Moveis_Model extends CI_Model {
     }
     
     public function update($movel) {   
-        $this->db->where('id', $cliente['id']);
-        return $this->db->update('clientes', $cliente);   
+        $this->db->where('id', $movel['id']);
+        return $this->db->update('moveis', $movel);   
     }
     
     public function delete($id) {
         $this->db->where('id', $id);
-        return $this->db->delete('clientes'); 
+        return $this->db->delete('moveis'); 
     }
 
     public function find($id) {        
-        $sql = "select * from clientes where id = $id";
+        $sql = "select * from moveis where id = $id";
         $query = $this->db->query($sql);
         return $query->row();        
     }

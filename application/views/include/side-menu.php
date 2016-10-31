@@ -101,10 +101,10 @@
                             <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Ambientes<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="panels-wells.html">Listagem</a>
+                                    <a href="<?= base_url('ambientes/listar') ?>">Listagem</a>
                                 </li>
                                 <li>
-                                    <a href="buttons.html">Cadastro</a>
+                                    <a href="<?= base_url('ambientes/cadastrar') ?>">Cadastro</a>
                                 </li>
                             </ul>
                         </li>

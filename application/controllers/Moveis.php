@@ -48,10 +48,25 @@ class Moveis extends CI_Controller {
     
       public function grava_cadastro() {
         // recebe os dados do formulário
-        $dados = $this->input->post();
+        $dados['id'] = $this->input->post('id');
+        $dados['descricao'] = $this->input->post('descricao');
+        $dados['altura'] = $this->input->post('altura');
+        $dados['largura'] = $this->input->post('largura');
+        $dados['profundidade'] = $this->input->post('profundidade');
+        $dados['preco'] = $this->input->post('preco');
+        $dados['ambientes_id'] = $this->input->post('ambientes_id');
+        
+        //configura codigo modulo
+        $ambiente_id = $this->input->post('ambientes_id'); 
+        $codigo = $this->ambientes->find_codigo($ambiente_id);
+        
+       
+        //dados['codigo'] = $this->input->post('ambientes_id');
+        //$dados['codigo']= $this->ambientes->find_codigo($ambiente_id);
+        
         // define as configurações para upload da foto
             if ($this->moveis->insert($dados)) {
-                $mensa = "Módulo corretamente cadastrado";
+                $mensa = $codigo."Módulo corretamente cadastrado";
                 $tipo = 1;
             } else {
                 $mensa = "Módulo não Cadastrado";

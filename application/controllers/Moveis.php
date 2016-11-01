@@ -58,7 +58,10 @@ class Moveis extends CI_Controller {
         
         //configura codigo modulo
         $ambiente_id = $this->input->post('ambientes_id'); 
-        $codigo = $this->ambientes->find_codigo($ambiente_id);
+        $sigla = $this->ambientes->find_codigo($ambiente_id);
+        $numero = 1 + $this->moveis->conta_moveis($sigla);
+        $codigo = $sigla . "." . $numero;
+        $dados['codigo'] = $codigo;
         
        
         //dados['codigo'] = $this->input->post('ambientes_id');

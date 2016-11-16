@@ -1,7 +1,7 @@
  <div id="page-wrapper">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Lista de Ambientes</h1>
+                        <h1 class="page-header">Lista de Ambientes Desativados</h1>
                     </div>
                 </div>
                 <?php
@@ -23,12 +23,12 @@
                         }                
                     }            
                 ?>
-                
-                <!--Tabela Ambientes-->
-               <div class="col-lg-12">
+
+                     <!--Tabela Desativados-->
+                <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Ambientes
+                            Desativados
                         </div>
                         
                         <div class="panel-body">
@@ -36,28 +36,27 @@
                                 <table class="table table-striped table-bordered table-hover">
                                     <thead>
                                         <tr>
-                                            <th>Código</th>                                           
+                                            <th>Código</th>
                                             <th>Descrição</th>
                                             <th>Sigla</th>
                                             <th>Ações</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php foreach ($ambientes as $ambiente) { ?>
+                                        <?php foreach ($desativados as $desativado) { ?>
                                             <tr>
-                                                <td><?= $ambiente->id ?></td>                                             
-                                                <td><?= $ambiente->descricao ?></td>
-                                                <td><?= $ambiente->sigla?></td>
-                                                <td>
-                                                    <a href="<?= base_url().'ambientes/alterar/'.$ambiente->id ?>">
-                                                        <span class="glyphicon glyphicon-pencil" title="Alterar"></span></a> &nbsp;&nbsp; 
-                                                    <a href="<?= base_url().'ambientes/desativar/'.$ambiente->id ?>">
-                                                        <span class="glyphicon glyphicon-ban-circle" title="Desativar"></span></a> &nbsp;&nbsp;
-                                                    <a href="<?= base_url().'ambientes/excluir/'.$ambiente->id ?>"
-                                                        onclick="return confirm('Confirma Exclusão do Ambiente\'<?= $ambiente->descricao ?>\'?')">
+                                                <td><?= $desativado->id ?></td>
+                                                <td><?= $desativado->descricao ?></td>
+                                                <td><?= $desativado->sigla ?></td>
+                                                <td>  
+                                                    <a href="<?= base_url().'ambientes/ativar/'.$desativado->id ?>">
+                                                        <span class="glyphicon glyphicon-check" title="Ativar"></span></a> &nbsp;&nbsp;
+                                                    <a href="<?= base_url().'ambientes/excluir/'.$desativado->id ?>"
+                                                        onclick="return confirm('Confirma Exclusão do Ambiente\'<?= $desativado->descricao ?>\'?')">
                                                         <span class="glyphicon glyphicon-remove" title="Excluir"></span></a>&nbsp;&nbsp;
-                                            </td>
-                                        </tr>
+
+                                                </td>
+                                            </tr>
                                         <?php } ?>
                                     </tbody>
                                 </table>
@@ -65,6 +64,8 @@
                         </div>
                     </div>
                 </div>
+
 </body>
 </html>
+
 

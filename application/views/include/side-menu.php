@@ -104,7 +104,10 @@
                             <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Ambientes<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="<?= base_url('ambientes/listar') ?>">Listagem</a>
+                                    <a href="<?= base_url('ambientes/listar_ambientes') ?>">Listagem</a>
+                                </li>
+                                <li>
+                                    <a href="<?= base_url('ambientes/listar_desativados') ?>">Desativados</a>
                                 </li>
                                 <li>
                                     <a href="<?= base_url('ambientes/cadastrar') ?>">Cadastro</a>

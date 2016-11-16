@@ -19,7 +19,10 @@
                                 <div class="form-group">
                                     <label>Descrição</label>
                                     <input class="form-control" name="descricao" placeholder="Digite a descrição do ambiente">
-
+                                </div>
+                                <div class="form-group">
+                                    <label>Sigla</label>
+                                    <input class="form-control" name="sigla" placeholder="Digite a sigla do ambiente">
                                 </div>
                                 <!-- <div class="form-group">
                                     <label>Fotos</label>

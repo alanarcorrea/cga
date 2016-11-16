@@ -75,8 +75,8 @@ class Moveis extends CI_Controller {
         $dados['ambientes_id'] = $this->input->post('ambientes_id');
         
         //configura codigo modulo
-        $ambiente_id = $this->input->post('ambientes_id'); 
-        $sigla = $this->ambientes->find_codigo($ambiente_id);
+        $ambiente_id = $dados['ambientes_id'];
+        $sigla = $this->ambientes->find_sigla($ambiente_id);
         $numero = 1 + $this->moveis->conta_moveis($sigla);
         $codigo = $sigla . "." . $numero;
         $dados['codigo'] = $codigo;
@@ -98,7 +98,7 @@ class Moveis extends CI_Controller {
         $this->session->set_flashdata('tipo', $tipo);
 
         // recarrega a view (index)
-        redirect(base_url('moveis/listar'));
+        redirect(base_url('moveis/listar_modulos'));
     }
     
     public function grava_cadastro2() {

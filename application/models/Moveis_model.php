@@ -85,7 +85,7 @@ class Moveis_Model extends CI_Model {
     }
     
     public function conta_moveis($codigo){
-        $sql = "SELECT COUNT(id) FROM moveis WHERE codigo LIKE %$codigo%";
+        $sql = "SELECT COUNT(id) FROM moveis WHERE codigo LIKE '%$codigo%'";
         $query = $this->db->query($sql);
         return $query->row();
     }

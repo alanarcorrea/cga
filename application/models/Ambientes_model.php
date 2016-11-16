@@ -3,7 +3,7 @@
 class Ambientes_Model extends CI_Model {
     
     public function select() {        
-        $sql = "SELECT a.id AS id, a.descricao AS descricao FROM ambientes a ";
+        $sql = "SELECT a.id AS id, a.descricao AS descricao, a.sigla AS sigla FROM ambientes a ";
         $sql .= "WHERE a.ativo=1 ";
         $sql .= "ORDER BY a.descricao";
         $query = $this->db->query($sql);
@@ -11,7 +11,7 @@ class Ambientes_Model extends CI_Model {
     }
 
     public function select_desativados() {        
-        $sql = "SELECT a.id AS id, a.descricao AS descricao FROM ambientes a ";
+        $sql = "SELECT a.id AS id, a.descricao AS descricao, a.sigla AS sigla FROM ambientes a ";
         $sql .= "WHERE a.ativo=0 ";
         $sql .= "ORDER BY a.descricao";
         $query = $this->db->query($sql);
@@ -48,8 +48,8 @@ class Ambientes_Model extends CI_Model {
         return $query->row();        
     }
     
-    public function find_codigo($id){
-        $sql = "SELECT codigo FROM ambientes WHERE id=$id";
+    public function find_sigla($id){
+        $sql = "SELECT sigla FROM ambientes WHERE id=$id";
         $query = $this->db->query($sql);
         return $query->row();
     }

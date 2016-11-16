@@ -9,12 +9,24 @@ class Ambientes extends CI_Controller {
 
         $this->load->model('Ambientes_model', 'ambientes');   
     }
-    
+      
     public function listar(){
         $dados['ambientes'] = $this->ambientes->select();
         $dados['desativados'] = $this->ambientes->select_desativados();
         $this->load->view('include/side-menu');
         $this->load->view('ambientes_listagem', $dados);
+    }
+    
+    public function listar_ambientes(){
+        $dados['ambientes'] = $this->ambientes->select();
+        $this->load->view('include/side-menu');
+        $this->load->view('ambientes_listagem', $dados);
+    }
+          
+    public function listar_desativados(){
+        $dados['desativados'] = $this->ambientes->select_desativados();
+        $this->load->view('include/side-menu');
+        $this->load->view('ambientes_desativados', $dados);
     }
     
     

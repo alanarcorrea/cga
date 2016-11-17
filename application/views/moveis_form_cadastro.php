@@ -47,11 +47,11 @@
                                     <input type="text" class="form-control" name="preco" placeholder="Digite o preço do módulo">
                                     <span class="input-group-addon">,00</span>
                                 </div>                               
-                                <!-- <div class="form-group">
+                                <div class="form-group">
                                     <label>Fotos</label>
-                                    <input type="file" name="foto">
-                                </div> -->                                       
-                                <button type="submit" class="btn btn-default">Enviar</button>
+                                    <input type="file" name="foto[]" multiple>
+                                </div>                                        
+                                <button type="submit" name="upload" class="btn btn-default">Enviar</button>
                                 <button type="reset" class="btn btn-default">Limpar</button>
                             </form>
                         </div>

@@ -64,8 +64,8 @@ class Moveis_Model extends CI_Model {
         $this->db->query($sql); 
     }
     
-    public function insert($movel) {
-         return $this->db->insert('moveis', $movel);
+    public function insert($movel) {  
+        return $this->db->insert('moveis', $movel);
     }
     
     public function update($movel) {   
@@ -86,6 +86,16 @@ class Moveis_Model extends CI_Model {
     
     public function conta_moveis($codigo){
         $sql = "SELECT COUNT(id) FROM moveis WHERE codigo LIKE '%$codigo%'";
+        $query = $this->db->query($sql);
+        return $query->row();
+    }
+    
+    public function insertFotos($fotos, $lastId){
+        return $this->db->insert('fotografias', $fotos);        
+    }
+    
+    public function last(){
+        $sql = "SELECT MAX(id) FROM moveis";
         $query = $this->db->query($sql);
         return $query->row();
     }

@@ -95,8 +95,16 @@ class Moveis_Model extends CI_Model {
     }
     
     public function last(){
-        $sql = "SELECT MAX(id) FROM moveis";
+        $sql = "SELECT MAX(id) as id FROM moveis";
         $query = $this->db->query($sql);
-        return $query->row();
+        return $query->row()->id;
     }
 }
+//
+//"SELECT userid FROM DB WHERE name='john'"
+//$row=$result->fetch_assoc();
+//
+//$id=$row['userid'];
+//echo gettype($id);
+//
+//$id = (int) $row['userid'];

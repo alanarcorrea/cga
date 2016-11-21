@@ -76,8 +76,9 @@ class Moveis extends CI_Controller {
         $fotos[] = 0;
 
         if ($this->moveis->insert($dados)) {
-            //$lastId = $this->moveis->last();
-            $lastId=40;
+            $lastId =((int)$this->moveis->last());
+            
+            //$lastId=40;
             if (isset($_POST['upload'])) {
 
                 //INFO IMAGEM
@@ -154,6 +155,11 @@ class Moveis extends CI_Controller {
         redirect(base_url('moveis/listar_modulos'));
     }
 
+
+
+public function lastId(){
+    $lastId =$this->moveis->last();
+    echo $lastId;
 }
 
 //configura codigo modulo
@@ -163,6 +169,7 @@ class Moveis extends CI_Controller {
 //        $codigo = $sigla . "." . $numero;
 //        $dados['codigo'] = $codigo;
 // define as configurações para upload da foto
+}
 ?>
 
 

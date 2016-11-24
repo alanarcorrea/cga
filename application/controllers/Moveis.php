@@ -76,9 +76,8 @@ class Moveis extends CI_Controller {
         $fotos[] = 0;
 
         if ($this->moveis->insert($dados)) {
-            $lastId =((int)$this->moveis->last());
+            $lastId =$this->moveis->last();
             
-            //$lastId=40;
             if (isset($_POST['upload'])) {
 
                 //INFO IMAGEM

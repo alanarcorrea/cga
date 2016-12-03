@@ -87,13 +87,13 @@
                             <a href="tables.html"><i class="fa fa-table fa-fw"></i> Móveis<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="<?= base_url('moveis/listar_destaques') ?>">Destaques</a>
+                                    <a href="<?= base_url('moveis/listar/destaques')?>">Destaques</a>
                                 </li>
                                 <li>
-                                    <a href="<?= base_url('moveis/listar_modulos') ?>">Módulos</a>
+                                    <a href="<?= base_url('moveis/listar/modulos') ?>">Módulos</a>
                                 </li>
                                 <li>
-                                    <a href="<?= base_url('moveis/listar_desativados') ?>">Desativados</a>
+                                    <a href="<?= base_url('moveis/listar/desativados') ?>">Desativados</a>
                                 </li>
                                 <li>
                                     <a href="<?= base_url('moveis/cadastrar') ?>">Cadastro de Módulos</a>

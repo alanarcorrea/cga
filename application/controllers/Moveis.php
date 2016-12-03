@@ -11,30 +11,22 @@ class Moveis extends CI_Controller {
         $this->load->model('Ambientes_model', 'ambientes');
     }
 
-    public function listar() {
-        $dados['moveis'] = $this->moveis->select_moveis();
-        $dados['destaques'] = $this->moveis->select_destaques();
-        $dados['desativados'] = $this->moveis->select_desativados();
-        $this->load->view('include/side-menu');
-        $this->load->view('moveis_listagem', $dados);
-    }
-
-    public function listar_modulos() {
-        $dados['moveis'] = $this->moveis->select_moveis();
-        $this->load->view('include/side-menu');
-        $this->load->view('moveis_modulos', $dados);
-    }
-
-    public function listar_destaques() {
-        $dados['destaques'] = $this->moveis->select_destaques();
-        $this->load->view('include/side-menu');
-        $this->load->view('moveis_destaques', $dados);
-    }
-
-    public function listar_desativados() {
-        $dados['desativados'] = $this->moveis->select_desativados();
-        $this->load->view('include/side-menu');
-        $this->load->view('moveis_desativados', $dados);
+    public function listar($args) {
+        if($args == "destaques"){
+            $dados['destaques'] = $this->moveis->select_destaques();
+            $this->load->view('include/side-menu');
+            $this->load->view('moveis_destaques', $dados);
+        }
+        if($args == "modulos"){
+            $dados['moveis'] = $this->moveis->select_moveis();
+            $this->load->view('include/side-menu');
+            $this->load->view('moveis_modulos', $dados);
+        }
+        if($args == "desativados"){
+            $dados['desativados'] = $this->moveis->select_desativados();
+            $this->load->view('include/side-menu');
+            $this->load->view('moveis_desativados', $dados);
+        }
     }
 
     public function destacar($id) {
@@ -49,6 +41,11 @@ class Moveis extends CI_Controller {
 
     public function ativar($id) {
         $this->moveis->ativar($id);
+        redirect('moveis/listar');
+    }
+    
+     public function excluir($id) {
+        $this->moveis->delete($id);
         redirect('moveis/listar');
     }
 
